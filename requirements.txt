@@ -1,0 +1,6 @@
+scipy
+numpy
+matplotlib
+sdf @ git+https://github.com/fogleman/sdf.git@main
+openai
+gradio

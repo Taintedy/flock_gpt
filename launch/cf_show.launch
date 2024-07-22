@@ -1,0 +1,5 @@
+<launch>
+
+    <include file="$(find crazyswarm)/launch/hover_swarm.launch"/>
+    <node name="show" pkg="flock_gpt" type="cf_show_node.py" output="screen"/>
+</launch>
