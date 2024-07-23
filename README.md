@@ -47,6 +47,13 @@ and install the requirements
 pip install -r requirements.txt
 ```
 
+To make pycrazyswarm package visible in the FlockGPT package run command
+
+```bash
+echo "export PYTHONPATH=$PYTHONPATH:$HOME/path/to/ros_ws/src/crazyswarm/scripts" >> ~/.bashrc
+source ~/.bashrc
+```
+
 
 ## Usage
 

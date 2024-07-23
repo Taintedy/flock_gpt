@@ -72,49 +72,16 @@ class PointDistributer():
     def generate_points(self, num_of_points):
         points = np.random.uniform(low=self.bounds_min, high=self.bounds_max, size=(1000,3))
         
-        fig = plt.figure(figsize=(16, 16))
-        ax = fig.add_subplot(111, projection='3d')
-        ax._axis3don = False
-        for point in points:
-            ax.scatter(point[0], point[1], point[2], s=100)
-        ax.set_xlim([-2.5, 2.5])
-        ax.set_ylim([-2.5, 2.5])
-        ax.set_zlim([-2.5, 2.5])
-        ax.view_init(elev=30., azim=45)
-        ax.dist = 20
-        plt.show()
         
         init_shape = points.shape
         points = points.flatten()
         res = scipy.optimize.minimize(self.get_cost_sdf, points, method="L-BFGS-B", options={"maxiter":10000})
         points = res.x.reshape(int(init_shape[0]), 3)
 
-        fig = plt.figure(figsize=(16, 16))
-        ax = fig.add_subplot(111, projection='3d')
-        ax._axis3don = False
-        for point in points:
-            ax.scatter(point[0], point[1], point[2], s=100)
-        ax.set_xlim([-2.5, 2.5])
-        ax.set_ylim([-2.5, 2.5])
-        ax.set_zlim([-2.5, 2.5])
-        ax.view_init(elev=30., azim=45)
-        ax.dist = 20
-        plt.show()
 
         kmeans = KMeans(n_clusters=num_of_points, random_state=0, n_init="auto").fit(points)
         out_points = kmeans.cluster_centers_
         
-        fig = plt.figure(figsize=(16, 16))
-        ax = fig.add_subplot(111, projection='3d')
-        ax._axis3don = False
-        for point in out_points:
-            ax.scatter(point[0], point[1], point[2], s=100)
-        ax.set_xlim([-2.5, 2.5])
-        ax.set_ylim([-2.5, 2.5])
-        ax.set_zlim([-2.5, 2.5])
-        ax.view_init(elev=30., azim=45)
-        ax.dist = 20
-        plt.show()
         
         out_points = out_points.flatten()
         # for i in range(100):
@@ -124,17 +91,6 @@ class PointDistributer():
         out_points = res.x.reshape(int(out_points.shape[0]/3), 3)
         
         
-        fig = plt.figure(figsize=(16, 16))
-        ax = fig.add_subplot(111, projection='3d')
-        ax._axis3don = False
-        for point in out_points:
-            ax.scatter(point[0], point[1], point[2], s=100)
-        ax.set_xlim([-2.5, 2.5])
-        ax.set_ylim([-2.5, 2.5])
-        ax.set_zlim([-2.5, 2.5])
-        ax.view_init(elev=30., azim=45)
-        ax.dist = 20
-        plt.show()
         
         return out_points
 

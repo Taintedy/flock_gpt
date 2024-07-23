@@ -1,6 +1,8 @@
 scipy
 numpy
+scikit-learn
 matplotlib
+pynput
 sdf @ git+https://github.com/fogleman/sdf.git@main
 openai
 gradio

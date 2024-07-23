@@ -13,14 +13,14 @@ from apf_controller import APFSwarmController
 from point_distributor import PointDistributer
 
 RATE = 10
-
-
+import os
+path2launch = os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../crazyswarm/launch'))
 class SwarmControllerNode():
 
     def __init__(self, cost_func, max_vel, min_dist) -> None:
         self.max_vel = max_vel
         self.controller = APFSwarmController(max_vel=max_vel, min_dist=min_dist)
-        self.swarm = Crazyswarm(crazyflies_yaml='/home/s/ros_project/crazyswarm/ros_ws/src/crazyswarm/launch/crazyflies.yaml')
+        self.swarm = Crazyswarm(crazyflies_yaml=path2launch + '/crazyflies.yaml')
         self.all_cfs = self.swarm.allcfs.crazyflies
         self.timeHelper = self.swarm.timeHelper
         self.start_poses = np.array([[-2, 1.5, 1.0],
