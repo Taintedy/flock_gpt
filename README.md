@@ -66,7 +66,7 @@ OPENAI_API_KEY = 'YOUR API KEY HERE'
 ```
 
 ### Simulator
-
+Install the Unity simulator [here](https://github.com/mikk686/flock_GPT/releases/tag/simulator)
 Before running the LLM demo the `tcp_ip` and the `tcp_port` parameters have to be configured in the `endpoint.launch` file inside the ROS-TCP-Endpoint package. For more information please visit the ROS-TCP-Endpoint [repository](https://github.com/Unity-Technologies/ROS-TCP-Endpoint) .
 
 ```bash
